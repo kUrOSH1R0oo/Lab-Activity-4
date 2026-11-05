@@ -1,0 +1,10 @@
+services:
+  todo:
+    build: .
+    environment:
+      PORT: ${PORT:-1337}
+      APP_TIMEZONE: ${APP_TIMEZONE:-Asia/Manila}
+    ports:
+      # Host and container ports must match the PORT the app listens on.
+      - "${PORT:-1337}:${PORT:-1337}"
+    restart: unless-stopped
